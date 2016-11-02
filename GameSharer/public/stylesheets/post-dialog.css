@@ -1,0 +1,91 @@
+.dialog-container {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+
+.post-dialog {
+  padding: 10px;
+  margin: 150px auto;
+  width: 600px;
+  height: 420px;
+  background-color: #eeeeee;
+  border-radius: 8px;
+}
+
+.post-head-container {
+  height: 12%;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.post-head-container h2 {
+  text-align: center;
+  margin: 0;
+  font-size: 2em;
+}
+
+.info-item {
+  margin-top : 2%;
+  width: 100%;
+}
+
+.info-item label {
+  font-family: sans-serif, monospace;
+  font-size: 1.3em;
+  margin-left: 55px;
+}
+
+.info-item input, .info-item textarea {
+  height: 40px;
+  width: 80%;
+  display: block;
+  margin:  10px auto;
+  border-radius: 6px;
+}
+
+.info-item textarea {
+  height: 120px;
+}
+
+.image-picker-container {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.image-picker-container input {
+  display: none;
+}
+
+.image-picker-container button {
+  margin: auto;
+  display: block;
+  width: 250px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.post-btn-container {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.post-btn-container button {
+  width: 90px;
+  height: 30px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+
+#post-cancel {
+  float: right;
+  margin-right: 175px;
+}
+
+#post-submit {
+  margin-left: 175px;
+}
