@@ -68,4 +68,5 @@ process.on('SIGTERM', function() {
 // Use plural form of name
 require('./users');
 require('./items');
+require('./cookie');
 require('./transactions');
