@@ -71,10 +71,6 @@ router.use(function (req, res, next) {
   }
 });
 
-router.get('/', function (req, res, next) {
-  res.send('respond with a resource');
->>>>>>> master
-});
 
 router.post('/signup', function (req, res, next) {
   mongoose.model('User').create({
