@@ -9,7 +9,7 @@ router.get('/:userId', function(req, res, next) {
     //TODO error handling
     return;
   }
-  mongoose.model("User").find({"_id" : userId}, function (err, user) {
+  mongoose.model("User").find({"ObjectId" : userId}, function (err, user) {
     if (err) {
       //TODO error handling
       return console.log(err);
