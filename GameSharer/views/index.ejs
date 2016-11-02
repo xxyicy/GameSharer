@@ -11,76 +11,9 @@
 </head>
 
 <body>
-	<ul id="navbar">
-		<li class="left title">Game Sharer</li>
-		<li class="left"><a class="active" href="/">Home</a>
-			<li class="left"><a href="/post">Your Posts</a></li>
-			<li id ="addPost" class="left"><a href="/addPost">Add Posts</a></li>
-
-			<li class="sign up right"><a>Sign up</a></li>
-			<li class="sign in right"><a>Login</a></li>
-			<!--<li id='logout' class='right'><a>Logout</a></li>-->
-	</ul>
-	<!-- The Modal -->
-	<div id="login-form" class="modal">
-		<span class="close" title="Close Modal">&times;</span>
-
-		<!-- Modal Content -->
-		<form class="modal-content animate">
-
-			<div id="login-container" class="container">
-				<label><b>Username</b></label>
-				<input type="text" placeholder="Enter Username" name="username" required>
-
-				<label><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="password" required>
-
-				<button id="login" type="button">Login</button>
-				<input type="checkbox" checked="checked"> Remember me
-			</div>
-
-			<div class="container" style="background-color:#f1f1f1">
-				<button type="button" class="cancelbtn">Cancel</button>
-			</div>
-		</form>
-	</div>
-
-	<div id="signup-form" class="modal">
-		<span class="close" title="Close Modal">&times;</span>
-
-		<!-- Modal Content -->
-		<form class="modal-content animate">
-
-			<div id="signup-container" class="container">
-				<label><b>Username</b></label>
-				<input type="text" placeholder="Enter Username" name="username" required>
-
-				<label><b>Password</b></label>
-				<input type="password" placeholder="Enter Password" name="password" required>
-
-				<label><b>Comfirm Password</b></label>
-				<input type="password" placeholder="Re-Enter Your Password" name="repassword" required>
-
-				<label><b>Phone Number</b></label>
-				<input type="text" placeholder="Enter Your Phone Number" name="phoneNumber" required>
-
-				<label><b>Email</b></label>
-				<input type="text" placeholder="Enter Your Email" name="email" required>
-
-				<label><b>First Name</b></label>
-				<input type="text" placeholder="Enter Your First Name" name="firstName" required>
-
-				<label><b>Last Name</b></label>
-				<input type="text" placeholder="Enter Your Last Name" name="lastName" required>
-
-				<button id="register" type="button">Register</button>
-			</div>
-
-			<div class="container" style="background-color:#f1f1f1">
-				<button type="button" class="cancelbtn">Cancel</button>
-			</div>
-		</form>
-	</div>
+  <% include ./templates/nav %>
+  <% include ./templates/login %>
+  <% include ./templates/logout %>
 </body>
 
 
