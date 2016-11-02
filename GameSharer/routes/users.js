@@ -27,7 +27,7 @@ router.get('/:userId', function(req, res, next) {
       }
     })
   })
-}
+})
 
 router.use(function (req, res, next) {
   if (req.cookies.uid) {
