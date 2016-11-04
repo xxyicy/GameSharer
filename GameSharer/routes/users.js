@@ -39,7 +39,7 @@ router.use(function (req, res, next) {
         return console.log(err);
       }
       //if there's no corresponding or more than 1 cookie in the db
-      if (cookies.length !== 0) {
+      if (cookies.length !== 1) {
         //TODO
       }
       var cookie = cookies[0];
@@ -123,6 +123,7 @@ router.post('/login', function (req, res, next) {
       userInfo = user[0];
       mongoose.model('Cookie').create({
         uid: userInfo._id,
+        //TODO use uuid
         cookie: passwordHash.generate(userInfo.username),
         expire: 360000 + Date.now()
       }, function (err, cookie) {
