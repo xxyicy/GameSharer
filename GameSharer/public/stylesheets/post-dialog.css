@@ -10,8 +10,8 @@
   padding: 10px;
   margin: 150px auto;
   width: 600px;
-  height: 420px;
-  background-color: #eeeeee;
+  height: 480px;
+  background-color: #CCCCCC;
   border-radius: 8px;
 }
 
@@ -48,6 +48,35 @@
 
 .info-item textarea {
   height: 120px;
+}
+
+#item-price {
+  display: inline-block;
+  width: 21%;
+  height: 24px;
+  font-size: 1.3em;
+  margin: 0 0 0 3%;
+}
+
+.info-item span {
+  font-size: 1.1em;
+}
+
+.info-item span:first-child {
+  margin-left: 8%;
+}
+
+.info-item select{
+  margin-left: 2%;
+  font-size: 1.1em;
+  border-radius: 6px;
+  border: 1px solid black;
+  background-color: #44DDDD;
+  color: #800000;
+}
+
+.info-item span:nth-child(3) {
+  margin-left: 2%;
 }
 
 .image-picker-container {

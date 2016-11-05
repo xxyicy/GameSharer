@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var passwordHash = require('password-hash');
 
 var db = require('./model/db');
-
+var items = require('./routes/item')
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var mongoose = require('mongoose');
@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/items', items);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

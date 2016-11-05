@@ -28,7 +28,6 @@
             document.getElementById('login-form').style.display = 'none';
             document.getElementById('signup-form').style.display = 'none';
         });
-        
         $(".cancelbtn").click(function () {
             document.getElementById('login-form').style.display = 'none';
             document.getElementById('signup-form').style.display = 'none';
