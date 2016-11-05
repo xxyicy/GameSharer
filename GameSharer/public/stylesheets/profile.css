@@ -54,14 +54,14 @@
   margin-top: 1%;
 }
 
-.info-item .label {
+.profile-info-container .info-item .label {
   display: inline-block;
   width: 40%;
   font-weight: bold;
   font-size: 1.5em;
 }
 
-.info-item input {
+.profile-info-container .info-item input {
   font-size: 1.3em;
   width: 55%;
   border: 1px dashed #BBBBBB;
