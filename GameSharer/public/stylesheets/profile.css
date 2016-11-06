@@ -99,23 +99,23 @@
 
 
 @media only screen and (min-width: 1350px),(max-height: 900px) {
-  body { font-size: 1em; }
+  .profile-container  { font-size: 1em; }
 }
 
 @media only screen and (max-width: 1000px),(max-height: 700px) {
 
-  body { font-size: 0.75em; }
+  .profile-container  { font-size: 0.75em; }
 }
 @media only screen and (max-width: 800px), (max-height: 550px) {
-  body { font-size: 0.6em; }
+  .profile-container  { font-size: 0.6em; }
 }
 
 @media only screen and (max-width: 650px), (max-height: 420px) {
-  body { font-size: 0.45em; }
+  .profile-container  { font-size: 0.45em; }
 }
 
 @media only screen and (max-width: 480px), (max-height: 340px) {
-  body { font-size: 0.35em; }
+  .profile-container  { font-size: 0.35em; }
 }
 
 

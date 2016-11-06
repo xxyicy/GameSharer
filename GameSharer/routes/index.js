@@ -13,9 +13,9 @@ router.get('/profile', function (req, res, next) {
   res.render('profile');
 });
 
-router.get('/dialog', function (req, res, next) {
-  res.render('post-dialog');
-});
+router.get('/my-post', function(req, res, next) {
+  res.render('items')
+})
 
 router.get('/items-page', function(req, res, next) {
   res.render('items');

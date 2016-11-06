@@ -2,28 +2,6 @@
     $(document).ready(function () {
         var apiUrl = "/users/";
 
-        if (document.cookie != "") {
-            $(".sign-in").replaceWith("<li id='profile' class='right'><a>Profile</a></li>");
-            $(".sign-up").replaceWith("<li id='logout' class='right'><a>Logout</a></li>");
-        }
-
-        $(".up").click(function () {
-            document.getElementById('signup-form').style.display = 'block';
-        });
-
-        $(".in").click(function () {
-            document.getElementById('login-form').style.display = 'block';
-        });
-
-        $(".close").click(function () {
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('signup-form').style.display = 'none';
-        });
-        $(".cancelbtn").click(function () {
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('signup-form').style.display = 'none';
-        });
-
         $("#register").click(function () {
             console.log("!!!!!!!!!!!")
             var username = $("#signup-form [name='username']").val();
@@ -106,18 +84,6 @@
             });
         });
 
-        $("#logout").click(function () {
-            $.ajax({
-                url: apiUrl + "logout",
-                type: 'DELETE',
-                dataType: 'JSON',
-                success: function (data) {
-                    window.location = "/"
-                },
-                error: function (request, status, error) {
-                    console.log(error, status, request);
-                }
-            });
-        });
+        
     });
 })();
