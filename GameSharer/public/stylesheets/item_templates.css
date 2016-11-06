@@ -1,0 +1,29 @@
+.item_div {
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 15px;
+    width: 30%;
+    height: 200px;
+    overflow: auto;
+}
+
+.title {
+    margin: 10px;
+    text-align: center;
+}
+
+.description {
+    display: inline-block;
+    word-wrap: break-word;
+    vertical-align: top;
+    margin: 5px;
+    width: 60%;
+}
+
+
+.item_image {
+    margin-top: 5px;
+    display: inline-block;
+    vertical-align: top;
+}

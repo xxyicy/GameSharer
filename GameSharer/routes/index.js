@@ -17,6 +17,8 @@ router.get('/dialog', function (req, res, next) {
   res.render('post-dialog');
 });
 
-
+router.get('/items-page', function(req, res, next) {
+  res.render('items');
+})
 
 module.exports = router;

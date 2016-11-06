@@ -29,7 +29,32 @@ function deleteItem(itemId, userId) {
   })
 }
 
+function getItemInCategoryWithNum(itemCategory, itemNum, next) {
+  mongoose.model('Item').find({
+    category: itemCategory
+  }, function(err, items){
+    if (err){
+      next(utils.fail(err.code))
+    }
+    console.log(items)
+    next(utils.succ(items.slice(0, itemNum)))
+  })
+}
+
+function getItemInCategory(itemCategory, next) {
+  mongoose.model('Item').find({
+    category: itemCategory
+  }, function(err, items){
+    if (err){
+      next(utils.fail(err.code))
+    }
+    next(utils.succ(items))
+  })
+}
+
 module.exports = {
-  addItem: addItem
+  addItem: addItem,
+  getItemInCategoryWithNum: getItemInCategoryWithNum,
+  getItemInCategory: getItemInCategory
 }
 

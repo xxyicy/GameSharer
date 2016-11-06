@@ -6,10 +6,16 @@ var ItemSchema = new mongoose.Schema({
         type: String,
         enum: ['exchange', 'rent', 'sale']
     },
-    category: String,
+    category: {
+        type: String,
+        enum: ['game', 'console']
+    },
     description: String,
     owner: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    status: String,
+    status: {
+        type: String,
+        enum: ["active", "inactive"]
+    },
     picUrl: [String]
 });
 

@@ -28,5 +28,8 @@
             document.getElementById('login-form').style.display = 'none';
             document.getElementById('signup-form').style.display = 'none';
         });
+
+        getGame(3);
+        getConsole(3);
     });
 })();
