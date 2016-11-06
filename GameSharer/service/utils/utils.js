@@ -12,7 +12,16 @@ function succ(message) {
   }
 }
 
+function respond(res, obj) {
+  res.format({
+    json: function () {
+      res.json(obj);
+    }
+  });
+}
+
 module.exports = {
   fail: fail,
-  succ: succ
+  succ: succ,
+  respond: respond
 }
