@@ -37,9 +37,7 @@ var isLoggedIn = function (req, res, next) {
     });
     //If the request does not contain user cookie
   } else {
-    //TODO
-    alert("Please Login.")
-    res.render('index');
+    utils.respond(res, utils.fail("not logged in"))
   }
 };
 

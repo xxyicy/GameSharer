@@ -68,7 +68,6 @@ router.post('/login', function (req, res, next) {
     }
     mongoose.model('Cookie').create({
       uid: user._id,
-      //TODO use uuid
       cookie: uuid.v1(),
       expire: 1000 * 3600 * 24 * 7 + Date.now()
     }, function (err, cookie) {
