@@ -5,12 +5,12 @@ body {
 
 /* Bordered form */
 /* Bordered form */
-form {
+.sign-modal form {
     border: 3px solid #f1f1f1;
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+.sign-modal input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -20,7 +20,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.sign-modal button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -31,37 +31,25 @@ button {
 }
 
 /* Extra style for the cancel button (red) */
-.cancelbtn {
+.sign-modal .cancelbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #f44336;
 }
 
-/* Center the avatar image inside this container */
-.imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-}
-
-/* Avatar image */
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
 /* Add padding to containers */
-.container {
+.sign-modal .container {
     padding: 16px;
 }
 
 /* The "Forgot password" text */
-span.psw {
+.sign-modal span.psw {
     float: right;
     padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 250px) {
     span.psw {
         display: block;
         float: none;
@@ -72,7 +60,7 @@ span.psw {
 }
 
 /* The Modal (background) */
-.modal {
+.sign-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -87,7 +75,7 @@ span.psw {
 }
 
 /* Modal Content/Box */
-.modal-content {
+.sign-modal .modal-content {
     background-color: #fefefe;
     margin: 5px auto; /* 15% from the top and centered */
     border: 1px solid #888;
@@ -95,7 +83,7 @@ span.psw {
 }
 
 /* The Close Button */
-.close {
+.sign-modal .close {
     /* Position it in the top right corner outside of the modal */
     position: absolute;
     right: 25px;
@@ -106,14 +94,14 @@ span.psw {
 }
 
 /* Close button on hover */
-.close:hover,
+.sign-modal .close:hover,
 .close:focus {
     color: red;
     cursor: pointer;
 }
 
 /* Add Zoom Animation */
-.animate {
+.sign-modal .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
 }

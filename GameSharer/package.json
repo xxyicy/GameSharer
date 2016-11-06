@@ -11,10 +11,12 @@
     "debug": "~2.2.0",
     "ejs": "^2.5.2",
     "express": "~4.13.4",
+    "generate-key": "0.0.6",
     "jade": "~1.11.0",
     "mongoose": "^4.6.5",
     "morgan": "^1.7.0",
+    "password-hash": "~1.2.2",
     "serve-favicon": "^2.3.0",
-    "password-hash": "~1.2.2"
+    "uuid": "^2.0.3"
   }
 }

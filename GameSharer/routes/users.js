@@ -2,6 +2,14 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose')
 var passwordHash = require('password-hash');
+var userService = require('../service/userService')
+var userValidator = require('../service/validations/userValidator')
+var isLoggedIn = require('../policies/isLoggedIn')
+var utils = require('../service/utils/utils')
+var uuid = require('uuid')
+
+router.use('/logout', isLoggedIn);
+router.use('/profile', isLoggedIn);
 
 router.get('/:userId', function(req, res, next) {
   var userId = req.params.userId;
@@ -29,136 +37,61 @@ router.get('/:userId', function(req, res, next) {
   })
 })
 
-router.use(function (req, res, next) {
-  if (req.cookies.uid) {
-    mongoose.model('Cookie').find({
-      cookie: req.cookies.uid
-    }, function (err, cookies) {
-      if (err) {
-        //TODO
-        return console.log(err);
-      }
-      //if there's no corresponding or more than 1 cookie in the db
-      if (cookies.length !== 0) {
-        //TODO
-      }
-      var cookie = cookies[0];
-      var expire = cookie.expire;
-      //if cookie has expired
-      if (expire < Date.now()) {
-          mongoose.model('Cookie').remove({
-            cookie: req.cookies.uid
-            //TODO beneath
-          }, function (err) {
-            res.clearCookie("uid");
-            res.format({
-              json: function () {
-                res.json({ message: "Cookie Expired!" });
-              }
-            });
-          })
-      } else {
-        //TODO update cookie expiration with data imported from config file
-        cookie.expire = Date.now() + 0;
-        cookie.save();
-        req.userId = cookie.uid;
-        next()
-      }
-    });
-  //If the request does not contain user cookie
-  } else {
-    //TODO
-  }
-});
-
-
-router.post('/signup', function (req, res, next) {
-  mongoose.model('User').create({
-    username: req.body.username,
-    email: req.body.email,
-    password: passwordHash.generate(req.body.password),
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    phoneNumber: req.body.phoneNumber
-  }, function (err, user) {
-    if (err) {
-      res.send(err);
-    } else {
-      res.format({
-        json: function () {
-          res.json(user);
-        }
-      });
-    }
+router.post('/signup', function (req, res) {
+  var user = req.body;
+  userService.createUser(user, function(result) {
+     utils.respond(res, result);
   });
 });
 
 router.post('/login', function (req, res, next) {
+  var user = req.body;
+  var result = userValidator.validateLogin(user);
+  if (!result.succ) {
+    return utils.respond(res,result);
+  }
   var username = req.body.username;
+  var password = req.body.password;
 
-  password = req.body.password;
   mongoose.model('User').find({
     username: username
-  }, function (err, user) {
+  }, function (err, users) {
     if (err) {
-      console.log(err);
+      return utils.respond(res, utils.fail(err.code))
     }
-    if (user.length==0){
-      res.status(233);
-      res.format({
-        json: function () {
-          res.json({err:  "User not found." });
-        }
-      });
-    } 
-    else if (!passwordHash.verify(password, user[0].password)) {
-      res.status(234);
-      res.format({
-        json: function () {
-          res.json({ err:  "Password is not correct." });
-        }
-      });
+    if (users.length==0){
+      return utils.respond(res, utils.fail("user not found"))
     }
-    else {
-      userInfo = user[0];
-      mongoose.model('Cookie').create({
-        uid: userInfo._id,
-        cookie: passwordHash.generate(userInfo.username),
-        expire: 360000 + Date.now()
-      }, function (err, cookie) {
-        if (err) {
-          res.send(err);
-        } else {
-          res.cookie("uid", cookie.cookie);
-          res.format({
-            json: function () {
-              res.json({ message: "Cookie Set!" });
-            }
-          });
-        }
-      })
+    var user = users[0]
+    if (!passwordHash.verify(password, user.password)) {
+      return utils.respond(res, utils.fail("password incorrect"));
     }
+    mongoose.model('Cookie').create({
+      uid: user._id,
+      //TODO use uuid
+      cookie: uuid.v1(),
+      expire: 1000 * 3600 * 24 * 7 + Date.now()
+    }, function (err, cookie) {
+      if (err) {
+        return utils.respond(res, utils.fail(err.code));
+      } else {
+        res.cookie("uid", cookie.cookie);
+        return utils.respond(res, utils.succ(cookie));
+      }
+    })
   });
 });
 
 
-router.delete('/logout', function (req, res, next) {
+router.delete('/logout', function (req, res) {
   mongoose.model('Cookie').remove({
     cookie: req.cookies.uid
   }, function (err, cookie) {
     if (err) {
-      res.format({
-        json: function () {
-          res.json(err);
-        }
-      });
+      return utils.respond(res, utils.fail(err.code));
     } else {
       res.clearCookie("uid");
-      res.format({
-        json: function () {
-          res.json({ message: "Cookie Clear!" });
-        }
-      });
+      return utils.respond(res, utils.succ("Cookie Cleared"));
     }
   });
 });

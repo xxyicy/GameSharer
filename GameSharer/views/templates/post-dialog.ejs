@@ -1,23 +1,40 @@
-<div class="dialog-container">
-  <div class="post-dialog">
-    <div class="post-head-container">
-      <h2>Post New Item</h2>
-    </div>
-    <div class="info-item">
-      <label for="item-title">Title</label><br/>
-      <input type="text"  id="item-title" />
-    </div>
-    <div class="info-item">
-      <label for="item-Description">Description</label><br/>
-      <textarea id="item-description"></textarea>
-    </div>
-    <div class="image-picker-container">
-      <input type="file" id="item-image" />
-      <button id="post-img-btn">Add Image</button>
-    </div>
-    <div class="post-btn-container">
-      <button id="post-submit">Submit</button>
-      <button id="post-cancel">Cancel</button>
+  <link rel="stylesheet" href="./stylesheets/post-dialog.css"/>
+  <script src="javascripts/post-dialog.js"></script>
+  <div class="dialog-container">
+    <div class="post-dialog">
+      <div class="post-head-container">
+        <h2>Post New Item</h2>
+      </div>
+      <div class="info-item">
+        <label for="item-title">Title</label><br/>
+        <input type="text"  id="item-title" />
+      </div>
+      <div class="info-item">
+         <span> To: </span>
+         <select id="purpose-select">
+           <option value="exchange">exchange</option>
+           <option value="rent">rent</option>
+           <option value="sale">sale</option>
+         </select>
+         <span> Category: </span>
+         <select id="category-select">
+           <option value="game">game</option>
+           <option value="console">console</option>
+         </select>
+         <input type="text"  id="item-price" placeholder="price"/>
+      </div>
+      <div class="info-item">
+        <label for="item-Description">Description</label><br/>
+        <textarea id="item-description"></textarea>
+      </div>
+      <div class="image-picker-container">
+        <input type="file" id="item-image" />
+        <button id="post-img-btn">Add Image</button>
+      </div>
+      <div class="post-btn-container">
+        <button id="post-submit">Submit</button>
+        <button id="post-cancel">Cancel</button>
+      </div>
     </div>
   </div>
-</div>
+
