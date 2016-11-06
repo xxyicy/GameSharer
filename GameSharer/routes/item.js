@@ -8,12 +8,11 @@ router.post('/', isLoggedIn)
 
 router.post('/', function(req, res) {
   var item = req.body;
-  if (!req.userId) {
-    return utils.respond(res, utils.fail("Please login first"))
-  }
   item.owner = req.userId;
-  var result = itemService.addItem(item);
-  utils.respond(result);
+  itemService.addItem(item, function(result) {
+    utils.respond(res, result);
+  });
+
 })
 
 router.get('/', function(req, res) {

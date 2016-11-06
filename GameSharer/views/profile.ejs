@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/stylesheets/profile.css"/>
     <title></title>
     <script src="javascripts/jquery.js"></script>
+    <script src="javascripts/profile.js"></script>
   </head>
   <body>
     <% include ./templates/nav %>
@@ -33,8 +34,12 @@
           </div>
         </div>
         <div class="profile-description-container">
-          <textarea placeholder="Your Description"></textarea>
+          <textarea id="user-description" placeholder="Your Description"></textarea>
         </div>
+      <div class="profile-btn-container">
+        <button id="post-item-btn">Post New Item</button>
+        <button id="update-profile-btn">Update Profile</button>
+      </div>
       </div>
     </div>
   </body>

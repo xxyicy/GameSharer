@@ -32,7 +32,7 @@
 }
 
 .profile-img-container {
-  height: 50%;
+  height: 40%;
   width: 40%;
 }
 
@@ -44,7 +44,7 @@
 .profile-info-container {
   width: 50%;
   margin-left: 5%;
-  height: 50%;
+  height: 40%;
   vertical-align: top;
 }
 
@@ -84,6 +84,19 @@
   border: 2px solid #CCCCCC;
   background-color: #EEEEEE;
 }
+
+.profile-btn-container {
+  width: 300px;
+  float: right;
+}
+
+.profile-btn-container button {
+  width: 120px;
+  margin-right: 20px;
+  height: 35px;
+  border-radius: 6px;
+}
+
 
 @media only screen and (min-width: 1350px),(max-height: 900px) {
   body { font-size: 1em; }

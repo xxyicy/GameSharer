@@ -1,15 +1,15 @@
   <link rel="stylesheet" href="./stylesheets/post-dialog.css"/>
   <script src="javascripts/post-dialog.js"></script>
-  <div class="dialog-container">
+  <div class="dialog-container" id="post-dialog">
     <div class="post-dialog">
       <div class="post-head-container">
         <h2>Post New Item</h2>
       </div>
-      <div class="info-item">
+      <div class="post-info-item">
         <label for="item-title">Title</label><br/>
         <input type="text"  id="item-title" />
       </div>
-      <div class="info-item">
+      <div class="post-info-item">
          <span> To: </span>
          <select id="purpose-select">
            <option value="exchange">exchange</option>
@@ -23,7 +23,7 @@
          </select>
          <input type="text"  id="item-price" placeholder="price"/>
       </div>
-      <div class="info-item">
+      <div class="post-info-item">
         <label for="item-Description">Description</label><br/>
         <textarea id="item-description"></textarea>
       </div>

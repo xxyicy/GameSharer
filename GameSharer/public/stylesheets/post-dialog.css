@@ -3,7 +3,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  display: block;
+  display: none;
 }
 
 .post-dialog {
@@ -27,18 +27,18 @@
   font-size: 2em;
 }
 
-.info-item {
+.post-info-item {
   margin-top : 2%;
   width: 100%;
 }
 
-.info-item label {
+.post-info-item label {
   font-family: sans-serif, monospace;
   font-size: 1.3em;
   margin-left: 55px;
 }
 
-.info-item input, .info-item textarea {
+.post-info-item input, .post-info-item textarea {
   height: 40px;
   width: 80%;
   display: block;
@@ -46,7 +46,7 @@
   border-radius: 6px;
 }
 
-.info-item textarea {
+.post-info-item textarea {
   height: 120px;
 }
 
@@ -58,15 +58,15 @@
   margin: 0 0 0 3%;
 }
 
-.info-item span {
+.post-info-item span {
   font-size: 1.1em;
 }
 
-.info-item span:first-child {
+.post-info-item span:first-child {
   margin-left: 8%;
 }
 
-.info-item select{
+.post-info-item select{
   margin-left: 2%;
   font-size: 1.1em;
   border-radius: 6px;
@@ -75,7 +75,7 @@
   color: #800000;
 }
 
-.info-item span:nth-child(3) {
+.post-info-item span:nth-child(3) {
   margin-left: 2%;
 }
 
