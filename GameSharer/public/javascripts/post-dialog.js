@@ -1,7 +1,6 @@
 var postDialog = postDialog || {};
 postDialog.apiUrl = "/items/"
 
-
 $(document).ready(function() {
   postDialog.enableButtons();
 
@@ -12,10 +11,13 @@ postDialog.enableButtons = function() {
     $("#item-image").click();
   })
 
+  $("#post-cancel").click(function() {
+    $("#post-dialog").fadeToggle();
+  })
+
   $("#post-submit").click(function() {
     var data = postDialog.readData();
     if (postDialog.validateData(data)) {
-      //TODO ajax call to backend
       $.ajax({
         type: "POST",
         url: postDialog.apiUrl,

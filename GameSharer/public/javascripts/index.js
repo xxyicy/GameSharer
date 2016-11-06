@@ -9,8 +9,6 @@
     }
 
     $(document).ready(function () {
-        var apiUrl = "http://localhost:5000/";
-
         $(".sign-up").click(function () {
             document.getElementById('signup-form').style.display = 'block';
         });

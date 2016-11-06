@@ -11,6 +11,25 @@ var uuid = require('uuid')
 router.use('/logout', isLoggedIn);
 router.use('/profile', isLoggedIn);
 
+router.get('/profile', function (req, res) {
+  var uid = req.userId;
+  userService.getUser(uid, function(result) {
+    console.log(result);
+    utils.respond(res, result);
+  })
+})
+
+router.post('/profile', function (req, res) {
+  var uid = req.userId;
+  var data = {
+    uid: uid,
+    info: req.body
+  };
+  userService.updateUser(data, function(result) {
+    utils.respond(res, result)
+  })
+})
+
 router.get('/:userId', function(req, res, next) {
   var userId = req.params.userId;
   if (!userId) {
