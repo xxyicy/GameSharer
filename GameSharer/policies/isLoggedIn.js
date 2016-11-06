@@ -3,6 +3,7 @@ var utils = require('../service/utils/utils')
 var cookieService = require('../service/cookieService')
 
 var isLoggedIn = function (req, res, next) {
+  console.log("isLoggedIn")
   if (req.cookies.uid) {
     mongoose.model('Cookie').find({
       cookie: req.cookies.uid
@@ -28,7 +29,7 @@ var isLoggedIn = function (req, res, next) {
         }
       } else {
         //TODO update cookie expiration with data imported from config file
-        cookie.expire = Date.now() + 360000;
+        cookie.expire = Date.now() + 1000 * 3600 * 24 * 7;
         cookie.save();
         req.userId = cookie.uid;
         next()

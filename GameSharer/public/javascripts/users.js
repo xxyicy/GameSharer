@@ -1,6 +1,6 @@
 (function () {
     $(document).ready(function () {
-        var apiUrl = "http://localhost:5000/users/";
+        var apiUrl = "/users/";
 
         if (document.cookie != "") {
             $(".sign-in").replaceWith("<li id='profile' class='right'><a>Profile</a></li>");
@@ -25,10 +25,11 @@
         });
 
         $("#register").click(function () {
+            console.log("!!!!!!!!!!!")
             var username = $("#signup-form [name='username']").val();
             var password = $("#signup-form [name='password']").val();
             var repassword = $("#signup-form [name='repassword']").val();
-            if (username == 0) {
+            if (!username) {
                 alert("Username cannot be empty.");
                 return;
             }
@@ -48,21 +49,26 @@
                 lastName: $("#signup-form [name='lastName']").val(),
                 phoneNumber: $("#signup-form [name='phoneNumber']").val()
             }
+            console.log("@222222")
             $.ajax({
                 url: apiUrl + "signup",
                 type: 'POST',
                 data: user,
                 dataType: 'JSON',
                 success: function (data) {
-                    if (data.code == 11000) {
-                        alert("Username has been used, please use another one.");
+                    console.log("123120u312u31283u91823")
+                    console.log(data)
+                    if (!data.succ) {
+                        alert(data.result);
                     } else {
-                        document.getElementById('signup-form').style.display = 'none';
+                        window.location.reload();
                     }
-                    console.log(data);
                 },
                 error: function (request, status, error) {
-                    console.log(error);
+                  if (error) {
+                    console.log(error)
+                  } else {
+                  }
                 }
             });
         });
@@ -70,11 +76,11 @@
         $("#login").click(function () {
             var username = $("#login-form [name='username']").val();
             var password = $("#login-form [name='password']").val();
-            if (username == 0) {
+            if (!username) {
                 alert("Username cannot be empty.");
                 return;
             }
-            if (password == 0) {
+            if (!password) {
                 alert("Password cannot be empty.");
                 return;
             }
@@ -89,11 +95,10 @@
                 dataType: 'JSON',
                 success: function (data) {
                     console.log(data);
-                    if (data.err) {
-                        alert(data.err);
-                        return;
+                    if (!data.succ) {
+                        return alert(data.result);
                     }
-                    window.location.href = "./index.html"
+                    window.location = "/"
                 },
                 error: function (request, status, error) {
                     console.log(error, status, request);
@@ -105,11 +110,9 @@
             $.ajax({
                 url: apiUrl + "logout",
                 type: 'DELETE',
-                data: {},
                 dataType: 'JSON',
                 success: function (data) {
-                    console.log(data);
-                    window.location.href = "http://localhost:5000/"
+                    window.location = "/"
                 },
                 error: function (request, status, error) {
                     console.log(error, status, request);

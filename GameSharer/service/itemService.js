@@ -1,9 +1,9 @@
 var mongoose = require("mongoose")
-var itemValidater = require("./validations/itemValidater")
+var itemValidator = require("./validations/itemValidator")
 var utils = require("./utils/utils")
 
 function addItem(item) {
-  var validation = itemValidater.validateItem(item);
+  var validation = itemValidator.validateItem(item);
   if (!validation.succ) {
     return validation;
   } else {
