@@ -6,14 +6,29 @@
 	<title>Game Sharer</title>
 	<meta charset="utf-8" />
 	<link href="stylesheets/style.css" type="text/css" rel="stylesheet" />
+	<link href="stylesheets/nav.css" type="text/css" rel="stylesheet" />
+	<link href="stylesheets/index.css" type="text/css" rel="stylesheet" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="javascripts/users.js"> </script>
+	<script src="javascripts/items.js"></script>
 </head>
 
 <body>
   <% include ./templates/nav %>
   <% include ./templates/login %>
   <% include ./templates/logout %>
+
+  <div id="game_div">
+  	<h1> Game </h1>
+	<div class="content"> </div>
+	<a href="/items/game" class="ref"> View More </a>
+  </div>
+  <hr>
+  <div id="console_div">
+  	<h1> Console </h1>
+	<div class="content"> </div>
+	<a href="/items/console" class="ref"> View More </a>
+  </div>
 </body>
 
 
