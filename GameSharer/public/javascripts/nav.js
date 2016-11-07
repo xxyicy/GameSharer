@@ -35,7 +35,7 @@ $(document).ready(function () {
 
     $("#logout").click(function () {
         $.ajax({
-            url: apiUrl + "logout",
+            url: "/users/logout",
             type: 'DELETE',
             dataType: 'JSON',
             success: function (data) {

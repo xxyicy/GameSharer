@@ -31,22 +31,8 @@ function deleteItem(item, next) {
   })
 }
 
-function getItemInCategoryWithNum(itemCategory, itemNum, next) {
-  mongoose.model('Item').find({
-    category: itemCategory
-  }, function(err, items){
-    if (err){
-      next(utils.fail(err.code))
-    }
-    console.log(items)
-    next(utils.succ(items.slice(0, itemNum)))
-  })
-}
-
-function getItemInCategory(itemCategory, next) {
-  mongoose.model('Item').find({
-    category: itemCategory
-  }, function(err, items){
+function getItem(item, next) {
+  mongoose.model('Item').find(item, function(err, items){
     if (err){
       next(utils.fail(err.code))
     }
@@ -56,9 +42,7 @@ function getItemInCategory(itemCategory, next) {
 
 module.exports = {
   addItem: addItem,
-  getItemInCategoryWithNum: getItemInCategoryWithNum,
-  getItemInCategory: getItemInCategory,
-  deleteItem: deleteItem
-
+  getItem: getItem,
+  deleteItem: deleteItem,
 }
 

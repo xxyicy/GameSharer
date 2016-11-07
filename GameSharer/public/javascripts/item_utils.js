@@ -1,39 +1,31 @@
 var apiUrl = "/items/"
-var getGame = function (number, div) {
+var getGame = function (div, number) {
     var url;
     if (number) {
         url = apiUrl + "?category=game&num=" + number
-    }else {
+    } else {
         url = apiUrl + "?category=game";
     }
-    $.ajax({
-        url: url,
-        type: 'GET',
-        dataType: 'JSON',
-        success: function (data) {
-            if (data) {
-                if (data && data.succ) {
-                    displayItems(data.result, div)
-                } else {
-                    alert(data.result)
-                }
-            } else {
-                alert("Does not get item");
-            }
-        },
-        error: function (request, status, error) {
-            console.log(error, status, request);
-        }
-    })
+    requireItem(div, url)
 }
 
-var getConsole = function (number, div) {
+var getConsole = function (div, number) {
     var url;
     if (number) {
         url = apiUrl + "?category=console&num=" + number
-    }else {
+    } else {
         url = apiUrl + "?category=console";
     }
+    requireItem(div, url)
+}
+
+var getMyItem = function (div) {
+    var url;
+    url = apiUrl + "/my-items";
+    requireItem(div, url)
+}
+
+var requireItem = function (div, url) {
     $.ajax({
         url: url,
         type: 'GET',
