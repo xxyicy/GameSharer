@@ -4,6 +4,6 @@ var item_template = _.template(`
 			<hr>
 			<p class="item_description"><%= description %></p>
 			<div class="item_image">
-				<img  src="" />
+				<img  src="/img/<%=picUrl %>" />
 			</div>
 		</div>`)

@@ -50,6 +50,7 @@ var requireItem = function (div, url) {
 var displayItems = function (items, div) {
     var i;
     for (i = 0; i < items.length && i < 3; i++) {
+        console.log(items[i])
         var content = item_template(items[i])
         div.append(content);
     }
