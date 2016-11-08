@@ -12,7 +12,7 @@ var multer = require('multer')
 var path = require('path')
 
 var uploading = multer({
-  dest: path.join(__dirname, "../public/img/")
+  dest: path.resolve(__dirname, "../public/img/")
 })
 
 router.use('/logout', isLoggedIn);
@@ -21,7 +21,6 @@ router.use('/profile', isLoggedIn);
 router.get('/profile', function (req, res) {
   var uid = req.userId;
   userService.getUser(uid, function(result) {
-    console.log(result);
     utils.respond(res, result);
   })
 })

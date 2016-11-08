@@ -7,15 +7,13 @@ var multer = require('multer')
 var path = require('path')
 
 var upload = multer({
-  dest: path.join(__dirname, "../public/img/")
+  dest: path.resolve(__dirname, "../public/img/")
 })
 
 router.post('/', isLoggedIn)
 
 router.post('/', upload.single('itemPic'), function(req, res) {
   var item = req.body;
-  console.log(req.body)
-  console.log(req.file)
   if (req.file) {
     item.picUrl = req.file.filename
   }
