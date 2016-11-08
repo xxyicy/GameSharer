@@ -1,7 +1,7 @@
 
 
 $(document).ready(function () {
-    if (document.cookie != "") {
+    if ($.cookie('uid')) {
         $(".sign-in").replaceWith("<li id='profile' class='right'><a>Profile</a></li>");
         $(".sign-up").replaceWith("<li id='logout' class='right'><a>Logout</a></li>");
     }

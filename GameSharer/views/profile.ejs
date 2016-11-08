@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/stylesheets/profile.css"/>
     <title></title>
     <script src="javascripts/jquery.js"></script>
+  	<script src="javascripts/jquery.cookie.js"></script>
     <script src="javascripts/profile.js"></script>
   </head>
   <body>
@@ -17,7 +18,8 @@
       </div>
       <div class="profile-body-container">
         <div class="profile-img-container">
-          <img src="/img/cat.jpeg" alt="Loading"/>
+          <img src="/img/cat.jpeg" alt="Loading" id="img-avatar" />
+          <input type="file" id="input-avatar" />
         </div>
         <div class="profile-info-container">
           <div class="info-item">
@@ -37,6 +39,7 @@
           <textarea id="user-description" placeholder="Your Description"></textarea>
         </div>
       <div class="profile-btn-container">
+        <button id="my-posts-btn">My Items</button>
         <button id="post-item-btn">Post New Item</button>
         <button id="update-profile-btn">Update Profile</button>
       </div>

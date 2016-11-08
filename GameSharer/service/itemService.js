@@ -4,7 +4,6 @@ var utils = require("./utils/utils")
 
 function addItem(item, next) {
   //TODO hardcoded picUrl
-  item.picUrl = "/";
   var validation = itemValidator.validateItem(item);
   if (!validation.succ) {
     return next(validation);
@@ -59,6 +58,5 @@ module.exports = {
   getItemInCategoryWithNum: getItemInCategoryWithNum,
   getItemInCategory: getItemInCategory,
   deleteItem: deleteItem
-
 }
 

@@ -16,7 +16,7 @@ var ItemSchema = new mongoose.Schema({
         type: String,
         enum: ["active", "inactive"]
     },
-    picUrl: [String]
+    picUrl: String
 });
 
 module.exports = mongoose.model('Item', ItemSchema);

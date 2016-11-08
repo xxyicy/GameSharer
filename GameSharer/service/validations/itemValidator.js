@@ -11,12 +11,11 @@ function validateItem(item) {
   if (!item.purpose) {
     return utils.fail("missing purpose")
   }
-  if (!item.price) {
-    if (item.purpose === "exchange") {
-      item.price = 0;
-    } else {
-      return utils.fail("missing price")
-    }
+  if (item.purpose === "exchange") {
+    item.price = 0;
+  }
+  if (item.price === undefined || item.price === null) {
+    return utils.fail("missing price")
   }
   if (!item.category) {
     return utils.fail("missing category")

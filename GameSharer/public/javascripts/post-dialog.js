@@ -11,6 +11,12 @@ postDialog.enableButtons = function() {
     $("#item-image").click();
   })
 
+  $("#item-image").change(function() {
+    if (this.files && this.files[0]) {
+      $("#post-img-btn").html(this.files[0].name)
+    }
+  })
+
   $("#post-cancel").click(function() {
     $("#post-dialog").fadeToggle();
   })
@@ -23,9 +29,12 @@ postDialog.enableButtons = function() {
         url: postDialog.apiUrl,
         data: data,
         dataType: "JSON",
+        contentType: false,
+        processData: false,
         success: function(data) {
           if (data.succ) {
             alert("post succeeded")
+            window.location = "/"
           } else {
             alert(data.result)
           }
@@ -33,31 +42,37 @@ postDialog.enableButtons = function() {
         error: function(request, status, error) {
         }
       })
-    } else {
-      alert("Error reading input data (some of them are left empty)")
     }
   })
 }
 
 postDialog.validateData = function(data) {
   console.log(data);
-  if (!data.name || !data.purpose || !data.category || !data.price || !data.description) {
+  if (!data.get("name")) {
+    alert("missing name")
+    return false;
+  }
+  if (!data.get("price")) {
+    alert("missing price")
+    return false;
+  }
+  if (!data.get("description")) {
+    alert("missing description")
     return false;
   }
   return true;
 }
 
 postDialog.readData = function() {
-  var title = $("#item-title").val();
-  var purpose = $("#purpose-select").val();
-  var category = $("#category-select").val();
-  var price = $("#item-price").val();
-  var description = $("#item-description").val();
-  return {
-    name: title,
-    purpose: purpose,
-    category: category,
-    price: price,
-    description: description
+  var formData = new FormData();
+  formData.append("name", $("#item-title").val())
+  formData.append("purpose", $("#purpose-select").val())
+  formData.append("category", $("#category-select").val())
+  formData.append("price", Number($("#item-price").val()))
+  formData.append("description", $("#item-description").val())
+  var input = $("#item-image");
+  if (input[0] && input[0].files && input[0].files[0]) {
+    formData.append("itemPic", input[0].files[0])
   }
+  return formData
 }

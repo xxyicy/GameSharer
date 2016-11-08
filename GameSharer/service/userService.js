@@ -44,6 +44,7 @@ var updateUser = function(data, next) {
     }
     var info = data.info;
     //TODO modify profile pic
+    user.avatarUrl = info.avatarUrl || "";
     user.email = info.email || "";
     user.phoneNumber = info.phoneNumber || "";
     user.description = info.description || "";
