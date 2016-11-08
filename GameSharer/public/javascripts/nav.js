@@ -35,11 +35,15 @@ $(document).ready(function () {
 
     $("#logout").click(function () {
         $.ajax({
-            url: apiUrl + "logout",
+            url:  "/users/logout",
             type: 'DELETE',
             dataType: 'JSON',
             success: function (data) {
-                window.location = "/"
+                if (data.succ) {
+                  window.location = "/"
+                } else {
+                  alert(data.result)
+                }
             },
             error: function (request, status, error) {
                 console.log(error, status, request);

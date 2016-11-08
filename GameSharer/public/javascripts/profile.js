@@ -15,6 +15,7 @@ profile.fetchUserInfo = function() {
         profile.renderData(data.result);
       } else {
         alert(data.result);
+        window.location = "/"
       }
     },
     error: function(response, status, error) {
