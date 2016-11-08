@@ -3,12 +3,21 @@ var router = express.Router();
 var itemService = require('../service/itemService')
 var utils = require('../service/utils/utils')
 var isLoggedIn = require('../policies/isLoggedIn')
+var multer = require('multer')
+var path = require('path')
+
+var upload = multer({
+  dest: path.resolve(__dirname, "../public/img/")
+})
 
 router.post('/', isLoggedIn)
 router.use('/my-items', isLoggedIn)
 
-router.post('/', function(req, res) {
+router.post('/', upload.single('itemPic'), function(req, res) {
   var item = req.body;
+  if (req.file) {
+    item.picUrl = req.file.filename
+  }
   item.owner = req.userId;
   itemService.addItem(item, function(result) {
     utils.respond(res, result);
@@ -34,7 +43,7 @@ router.get('/', function(req, res) {
           return utils.respond(res, content);
         })
       }
-    }else{
+    } else {
       utils.respond(res, utils.fail("Gived wrong category"));
     }
   }

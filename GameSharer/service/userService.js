@@ -43,7 +43,9 @@ var updateUser = function(data, next) {
       return next(utils.fail(err.code))
     }
     var info = data.info;
-    //TODO modify profile pic
+    if (info.avatarUrl) {
+      user.avatarUrl = info.avatarUrl;
+    }
     user.email = info.email || "";
     user.phoneNumber = info.phoneNumber || "";
     user.description = info.description || "";

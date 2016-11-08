@@ -1,11 +1,12 @@
 .profile-container {
   width: 80%;
   height: 90vh;
-  margin: auto;
+  margin: 10px auto;
 }
 
 .profile-title-container {
   height: 15%;
+  margin-top: 25px;
 }
 
 .profile-title-container h1 {
@@ -15,14 +16,15 @@
   font-size: 3em;
   text-align: center;
   font-family: sans-serif, monospace;
-  border-bottom: 1px solid black;
+  color: white;
 }
 
 .profile-body-container {
-  margin-top: 1%;
   width: 100%;
   height: 80%;
   border: 3px dashed #EEEEEE;
+  background-color: #DDDDDD;
+  border-radius: 6px;
 }
 
 .profile-img-container, .profile-info-container {
@@ -86,7 +88,7 @@
 }
 
 .profile-btn-container {
-  width: 300px;
+  width: 450x;
   float: right;
 }
 
@@ -97,6 +99,13 @@
   border-radius: 6px;
 }
 
+#input-avatar {
+  display: none;
+}
+
+#img-avatar {
+  cursor: pointer;
+}
 
 @media only screen and (min-width: 1350px),(max-height: 900px) {
   .profile-container  { font-size: 1em; }
