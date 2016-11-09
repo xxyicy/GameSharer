@@ -54,6 +54,8 @@ var displayItems = function (items, div) {
         var content = item_template(items[i])
         div.append(content);
     }
+    var script = script_template();
+    div.append(script);
 }
 
 

@@ -21,4 +21,8 @@ router.get('/items-page', function(req, res, next) {
   res.render('items');
 })
 
+router.get('/detail', function(req, res, next) {
+  res.render('itemDetail');
+})
+
 module.exports = router;

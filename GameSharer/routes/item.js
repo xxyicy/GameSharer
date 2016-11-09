@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var itemService = require('../service/itemService')
+var userService = require('../service/userService')
 var utils = require('../service/utils/utils')
 var isLoggedIn = require('../policies/isLoggedIn')
 var multer = require('multer')
@@ -58,5 +59,37 @@ router.get('/my-items', function(req, res) {
   })
 })
 
+router.get('/detail', function(req,res) {
+  var itemId = req.query.itemId;
+  var id = {_id: itemId};
+  console.log(id);
+  itemService.getItem(id, function(items){
+    var item = items.result[0];
+    console.log(item);
+    if (!items.succ){
+      utils.respond(res, items);
+    }
+    userService.getUser(item.owner, function(users){
+      if (!users.succ){
+        utils.respond(res, users);
+      }
+      var user = users.result;
+      console.log(users);
+      var result = {
+        name: item.name,
+        avatarUrl: item.avatarUrl,
+        category: item.category,
+        purpose: item.purpose,
+        price: item.price,
+        username: user.username,
+        email: user.email,
+        phone: user.phonePhone,
+        description: item.description
+      }
+      console.log(result);
+      return utils.respond(res, utils.succ(result));
+    })
+  })
+})
 
 module.exports = router;

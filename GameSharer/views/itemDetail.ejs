@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Game Sharer</title>
+	<meta charset="utf-8" />
+	<link href="stylesheets/style.css" type="text/css" rel="stylesheet" />
+	<link href="stylesheets/index.css" type="text/css" rel="stylesheet" />
+	<link href="stylesheets/item_templates.css" type="text/css" rel="stylesheet" />
+	<link href="stylesheets/itemDetail.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+	<script src="javascripts/jquery.js"></script>
+	<script src="javascripts/jquery.cookie.js"></script>
+	<script src="javascripts/users.js"> </script>
+	<script src="javascripts/item_utils.js"></script>
+	<script src="javascripts/items.js"></script>
+	<script src="javascripts/item_Detail.js"></script>
+	<script src="javascripts/item_templates.js"></script>
+	<script src="javascripts/index.js"> </script>
+</head>
+
+<body>
+	<% include ./templates/nav %>
+		<% include ./templates/login %>
+			<% include ./templates/signup %>
+				<div class="detail-container">
+					<div class="detail-title-container">
+						<h1 class="detail-title"></h1>
+					</div>
+					<div class="detail-body-container">
+						<div class="detail-img-container">
+							<img src="/img/cat.jpeg" alt="Loading" id="img-avatar" readonly/>
+							<input type="file" id="input-avatar" />
+						</div>
+						<div class="detail-info-container">
+							<div class="info-item">
+								<span class="label">Category: </span>
+								<input type="text" id="input-category" readonly/>
+							</div>
+							<div class="info-item">
+								<span class="label">Purpose: </span>
+								<input type="text" id="input-purpose" readonly/>
+							</div>
+							<div class="info-item">
+								<span class="label">Price: </span>
+								<input type="text" id="input-price" readonly/>
+							</div>
+							<div class="info-item">
+								<span class="label">Username: </span>
+								<input type="text" id="input-username" readonly/>
+							</div>
+							<div class="info-item">
+								<span class="label">Email: </span>
+								<input type="text" id="input-email" readonly/>
+							</div>
+							<div class="info-item">
+								<span class="label">Phone Number: </span>
+								<input type="text" id="input-phone" readonly/>
+							</div>
+						</div>
+						<div class="detail-description-container">
+							<p id="item-description"></textarea>
+						</div>
+						<div class="detail-btn-container">
+							<button id="delete-item-btn">Delete</button>
+							<button id="update-item-btn">Update</button>
+						</div>
+					</div>
+				</div>
+
+
+</body>
+
+</html>
