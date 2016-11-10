@@ -25,7 +25,7 @@ function deleteItem(item, next) {
     if (err) {
       return next(utils.fail(err.code));
     } else {
-      return next(utils.fail("item deleted"));
+      return next(utils.succ("item deleted"));
     }
   })
 }

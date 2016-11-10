@@ -77,6 +77,15 @@
   width: 100%;
 }
 
+.detail-description-container textarea {
+  border-radius: 6px;
+  height: 95%;
+  width: 93%;
+  display: block;
+  border: 2px solid #CCCCCC;
+  background-color: #EEEEEE;
+}
+
 .detail-description-container p {
   border-radius: 6px;
   height: 95%;
@@ -89,6 +98,7 @@
 .detail-btn-container {
   width: 450x;
   float: right;
+  display: none;
 }
 
 .detail-btn-container button {

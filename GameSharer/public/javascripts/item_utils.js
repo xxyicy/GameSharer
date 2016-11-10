@@ -1,10 +1,10 @@
-var apiUrl = "/items/"
+var itemsUrl = "/items/"
 var getGame = function (div, number) {
     var url;
     if (number) {
-        url = apiUrl + "?category=game&num=" + number
+        url = itemsUrl + "?category=game&num=" + number
     } else {
-        url = apiUrl + "?category=game";
+        url = itemsUrl + "?category=game";
     }
     requireItem(div, url)
 }
@@ -12,16 +12,16 @@ var getGame = function (div, number) {
 var getConsole = function (div, number) {
     var url;
     if (number) {
-        url = apiUrl + "?category=console&num=" + number
+        url = itemsUrl + "?category=console&num=" + number
     } else {
-        url = apiUrl + "?category=console";
+        url = itemsUrl+ "?category=console";
     }
     requireItem(div, url)
 }
 
 var getMyItem = function (div) {
     var url;
-    url = apiUrl + "/my-items";
+    url = itemsUrl + "/my-items";
     requireItem(div, url)
 }
 
