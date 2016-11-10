@@ -9,4 +9,4 @@ var item_template = _.template(`
 			</div>
 		</div>`)
 
-var script_template = _.template('<script>var itemCards = $(".item_div");itemCards.each(function () { $(this).click(function(){var itemId=$(this).find("#itemID").val(); window.location = "/detail?itemId="+itemId;});});</script>')
+var script_template = _.template('<script>var itemCards = $(".item_div");itemCards.each(function () { $(this).click(function(){if (!$.cookie("uid")){ alert("Please Login"); return;}; var itemId=$(this).find("#itemID").val(); window.location = "/detail?itemId="+itemId;});});</script>')

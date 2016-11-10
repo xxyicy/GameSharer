@@ -21,7 +21,7 @@ var getConsole = function (div, number) {
 
 var getMyItem = function (div) {
     var url;
-    url = itemsUrl + "/my-items";
+    url = apiUrl + "/my-items";
     requireItem(div, url)
 }
 

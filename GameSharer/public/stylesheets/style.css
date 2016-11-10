@@ -4,6 +4,10 @@ body {
 
 /* Bordered form */
 /* Bordered form */
+.sign-modal {
+    display: none;
+}
+
 .sign-modal form {
     border: 3px solid #f1f1f1;
 }
