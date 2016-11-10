@@ -6,6 +6,7 @@
             var username = $("#signup-form [name='username']").val();
             var password = $("#signup-form [name='password']").val();
             var repassword = $("#signup-form [name='repassword']").val();
+            var email = $("#signup-form [name='email']").val();
             if (!username) {
                 alert("Username cannot be empty.");
                 return;
@@ -16,6 +17,10 @@
             }
             if (password != repassword) {
                 alert("Please comfirm your password");
+                return;
+            }
+            if (!ValidateEmail(email)) {
+                alert("Please enter correct email address");
                 return;
             }
             var user = {
@@ -72,22 +77,30 @@
         });
 
         function login(user) {
-        $.ajax({
-            url: apiUrl + "login",
-            type: 'POST',
-            data: user,
-            dataType: 'JSON',
-            success: function (data) {
-                console.log(data);
-                if (!data.succ) {
-                    return alert(data.result);
+            $.ajax({
+                url: apiUrl + "login",
+                type: 'POST',
+                data: user,
+                dataType: 'JSON',
+                success: function (data) {
+                    console.log(data);
+                    if (!data.succ) {
+                        return alert(data.result);
+                    }
+                    window.location = "/"
+                },
+                error: function (request, status, error) {
+                    console.log(error, status, request);
                 }
-                window.location = "/"
-            },
-            error: function (request, status, error) {
-                console.log(error, status, request);
+            });
+        }
+
+        function ValidateEmail(email) {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                return (true)
             }
-        });
-    }
+            return (false)
+        }
+
     });
 })();
