@@ -31,7 +31,7 @@ itemDetail.fetchItemDetailAndPosterInfo = function(itemId, div) {
 
 itemDetail.renderData = function(data){
     $(".detail-title").text(data.name);
-    $("#img-avatar").attr("src", "img/"+data.avatarUrl);
+    $("#img-avatar").attr("src", "/img/"+data.picUrl);
     $("#input-category").val(data.category);
     $("#input-purpose").val(data.purpose);
     $("#input-price").val(data.price);

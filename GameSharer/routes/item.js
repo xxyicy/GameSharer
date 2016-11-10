@@ -13,6 +13,7 @@ var upload = multer({
 
 router.post('/', isLoggedIn)
 router.use('/my-items', isLoggedIn)
+router.use('/detail', isLoggedIn)
 
 router.post('/', upload.single('itemPic'), function(req, res) {
   var item = req.body;
@@ -77,13 +78,13 @@ router.get('/detail', function(req,res) {
       console.log(users);
       var result = {
         name: item.name,
-        avatarUrl: item.avatarUrl,
+        picUrl: item.picUrl,
         category: item.category,
         purpose: item.purpose,
         price: item.price,
         username: user.username,
         email: user.email,
-        phone: user.phonePhone,
+        phone: user.phoneNumber,
         description: item.description
       }
       console.log(result);
